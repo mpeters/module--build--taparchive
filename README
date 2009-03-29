@@ -1,52 +1,69 @@
-Module-Build-TAPArchive
+NAME
+    Module::Build::TAPArchive - Extra build targets for creating TAP
+    archives
 
-The README is used to introduce the module and provide instructions on
-how to install the module, any machine dependencies it may have (for
-example C compilers and installed libraries) and any other information
-that should be provided before the module is installed.
+VERSION
+    Version 0.01
 
-A README file is required for CPAN modules since CPAN extracts the README
-file from a module distribution so that people browsing the archive
-can use it to get an idea of the module's uses. It is usually a good idea
-to provide version information here so that people can decide whether
-fixes for the module are worth downloading.
+SYNOPSIS
+    Easily add support for extra build targets that create TAP archives of
+    the tests.
 
+    In your Build.PL
 
-INSTALLATION
+        use Module::Builder::TAPArchive;
+        my $builder = Module::Builder::TAPArchive->new(
+            ...
+        );
 
-To install this module, run the following commands:
+    Now you get these build targets
 
-	perl Build.PL
-	./Build
-	./Build test
-	./Build install
+        ]$ perl Build.PL
+        ]$ ./Build test_archive
 
-SUPPORT AND DOCUMENTATION
+NEW TARGETS
+    The following build targets are provided:
 
-After installing, you can find documentation for this module with the
-perldoc command.
+  test_archive
+    Create a TAP archive to the test run. This archive is placed at
+    test_archive.tar.gz in the current directory by default. You can
+    override this by specifying the "--archive_file" parameter.
 
-    perldoc Module::Build::TAPArchive
+        ./Build test_archive --archive_file mytests.tar.gz
 
-You can also look for information at:
+AUTHOR
+    Michael Peters, "<mpeters at plusthree.com>"
 
-    RT, CPAN's request tracker
-        http://rt.cpan.org/NoAuth/Bugs.html?Dist=Module-Build-TAPArchive
+BUGS
+    Please report any bugs or feature requests to
+    "bug-module-build-taparchive at rt.cpan.org", or through the web
+    interface at
+    <http://rt.cpan.org/NoAuth/ReportBug.html?Queue=Module-Build-TAPArchive>
+    . I will be notified, and then you'll automatically be notified of
+    progress on your bug as I make changes.
 
-    AnnoCPAN, Annotated CPAN documentation
-        http://annocpan.org/dist/Module-Build-TAPArchive
+SUPPORT
+    You can find documentation for this module with the perldoc command.
 
-    CPAN Ratings
-        http://cpanratings.perl.org/d/Module-Build-TAPArchive
+        perldoc Module::Build::TAPArchive
 
-    Search CPAN
-        http://search.cpan.org/dist/Module-Build-TAPArchive/
+    You can also look for information at:
 
+    * RT: CPAN's request tracker
+        <http://rt.cpan.org/NoAuth/Bugs.html?Dist=Module-Build-TAPArchive>
 
-COPYRIGHT AND LICENCE
+    * AnnoCPAN: Annotated CPAN documentation
+        <http://annocpan.org/dist/Module-Build-TAPArchive>
 
-Copyright (C) 2009 Michael Peters
+    * CPAN Ratings
+        <http://cpanratings.perl.org/d/Module-Build-TAPArchive>
 
-This program is free software; you can redistribute it and/or modify it
-under the same terms as Perl itself.
+    * Search CPAN
+        <http://search.cpan.org/dist/Module-Build-TAPArchive/>
+
+COPYRIGHT & LICENSE
+    Copyright 2009 Michael Peters, all rights reserved.
+
+    This program is free software; you can redistribute it and/or modify it
+    under the same terms as Perl itself.
 
