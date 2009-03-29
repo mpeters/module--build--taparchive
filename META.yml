@@ -1,0 +1,24 @@
+---
+name: Module-Build-TAPArchive
+version: 0.01
+author:
+  - 'Michael Peters <mpeters@plusthree.com>'
+abstract: Extra build targets for creating TAP archives
+license: perl
+resources:
+  license: ~
+requires:
+  Module::Build: 0.32
+  TAP::Harness::Archive: 0.13
+build_requires:
+  Capture::Tiny: 0
+  File::Path: 0
+  Test::More: 0
+provides:
+  Module::Build::TAPArchive:
+    file: lib/Module/Build/TAPArchive.pm
+    version: 0.01
+generated_by: Module::Build version 0.32
+meta-spec:
+  url: http://module-build.sourceforge.net/META-spec-v1.2.html
+  version: 1.2
