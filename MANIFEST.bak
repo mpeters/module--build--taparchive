@@ -1,0 +1,12 @@
+Build.PL
+Changes
+lib/Module/Build/TAPArchive.pm
+MANIFEST
+MANIFEST.SKIP
+README
+t/00-load.t
+t/01-base.t
+t/fail.t
+t/pass.t
+xt/pod-coverage.t
+xt/pod.t
