@@ -17,7 +17,6 @@ my $builder = Module::Build->new(
         'File::Path'    => 0,
     },
     add_to_cleanup     => ['Module-Build-TAPArchive-*'],
-    create_makefile_pl => 'passthrough',
 );
 
 $builder->create_build_script();

@@ -1,5 +1,8 @@
 Revision history for Module-Build-TAPArchive
 
-0.01    Date/time
-        First version, released on an unsuspecting world.
+0.02    March 30, 2009
+    + Fix bug with making sure the @INC that Module::Build sets up is passed to TAP::Harness::Archive - M. Peters
+
+0.01    March 29, 2009
+    + First version, released on an unsuspecting world.
 

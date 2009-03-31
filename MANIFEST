@@ -10,3 +10,4 @@ t/fake_tests/fail.t
 t/fake_tests/pass.t
 xt/pod-coverage.t
 xt/pod.t
+META.yml
