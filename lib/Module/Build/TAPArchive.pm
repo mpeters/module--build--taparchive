@@ -4,16 +4,12 @@ use strict;
 use base 'Module::Build';
 use TAP::Harness::Archive;
 
-our $VERSION = '0.01';
+our $VERSION = '0.03';
 __PACKAGE__->add_property(archive_file => 'test_archive.tar.gz');
 
 =head1 NAME
 
 Module::Build::TAPArchive - Extra build targets for creating TAP archives
-
-=head1 VERSION
-
-Version 0.01
 
 =head1 SYNOPSIS
 
@@ -48,20 +44,22 @@ specifying the C<--archive_file> parameter.
 sub ACTION_test_archive {
     my $self = shift;
     $self->{properties}{use_tap_harness} = 1;
+    my $archive_file = $self->{properties}{archive_file} || 'test_archive.tar.gz';
 
     # make Module::Build use our archive method instead of run_tap_harness
     local *Module::Build::run_tap_harness = sub {
         my ($self, $tests) = @_;
         TAP::Harness::Archive->new(
             {
-                lib       => [@Module::Build::INC],
+                lib       => \@INC,
                 verbosity => $self->{properties}{verbose},
                 switches  => [$self->harness_switches],
-                archive   => $self->{properties}{archive_file} || 'test_archive.tar.gz',
+                archive   => $archive_file,
                 %{$self->tap_harness_args},
             }
         )->runtests(@$tests);
     };
+    $self->add_to_cleanup($archive_file);
     $self->generic_test(type => 'default');
 }
 
