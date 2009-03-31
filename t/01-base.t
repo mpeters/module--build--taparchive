@@ -10,7 +10,7 @@ BEGIN
 
 use strict;
 use File::Spec::Functions qw(catfile rel2abs);
-use Test::More ('no_plan');
+use Test::More (tests => 14);
 use TAP::Harness::Archive;
 use File::Path qw(rmtree);
 use Capture::Tiny qw(capture_merged capture);
