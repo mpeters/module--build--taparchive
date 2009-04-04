@@ -1,5 +1,9 @@
 Revision history for Module-Build-TAPArchive
 
+0.03    April 4, 2009
+    + Remove Makefile.PL support and just go wtith Build.PL
+    + Clean up any archive files created when ./Build clean is run
+
 0.02    March 30, 2009
     + Fix bug with making sure the @INC that Module::Build sets up is passed to TAP::Harness::Archive - M. Peters
 
