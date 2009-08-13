@@ -13,7 +13,7 @@ use File::Spec::Functions qw(catfile rel2abs);
 use Test::More (tests => 14);
 use TAP::Harness::Archive;
 use File::Path qw(rmtree);
-use Capture::Tiny qw(capture_merged capture);
+use Capture::Tiny qw(capture);
 
 my $module = 'Module::Build::TAPArchive';
 use_ok( $module ) or exit;
@@ -35,7 +35,8 @@ can_ok( $build, 'ACTION_test_archive' );
 
 # make sure we create the default archive file and it works
 # use our fake tests for this
-capture_merged {
+capture {
+    local $ENV{HARNESS_VERBOSE} = 0;
     no warnings;
     local *Module::Build::find_test_files = sub {
         [ map { catfile( 'fake_tests', $_ ) } qw( fail.t pass.t ) ]

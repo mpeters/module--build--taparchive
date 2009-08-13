@@ -12,8 +12,8 @@ my $builder = Module::Build->new(
         'TAP::Harness::Archive' => 0.13,
     },
     build_requires => {
+        'Capture::Tiny' => 0.06,
         'Test::More'    => 0,
-        'Capture::Tiny' => 0,
         'File::Path'    => 0,
     },
     add_to_cleanup     => ['Module-Build-TAPArchive-*'],
