@@ -4,7 +4,8 @@ use strict;
 use base 'Module::Build';
 use TAP::Harness::Archive;
 
-our $VERSION = '0.03';
+our $VERSION = '0.04';
+
 __PACKAGE__->add_property(archive_file => 'test_archive.tar.gz');
 
 =head1 NAME
